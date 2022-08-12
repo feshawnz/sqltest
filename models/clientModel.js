@@ -25,7 +25,6 @@ var clientModel = {
 		});
 	},
 	delete: function (condition, cb) {
-		console.log("workings??")
 		orm.delete('clients',condition, function (res) {
 			console.log("workings11111??")
 			cb(res);

@@ -23,7 +23,7 @@ app.set('view engine', 'handlebars');
 
 
 // REQUIRE THIS WHEN YOU HAVE EVERYTHING SET UP
-var routes = require('./controllers/burgers_controller.js');
+var routes = require('./controllers/clients_controller.js');
 app.use('/', routes);
 
 
