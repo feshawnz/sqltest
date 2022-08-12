@@ -1,5 +1,5 @@
-CREATE DATABASE client_db;
-USE client_db;
+CREATE DATABASE clients_db;
+USE clients_db;
 
 
 CREATE TABLE clients(
