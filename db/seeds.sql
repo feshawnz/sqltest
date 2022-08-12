@@ -1,6 +1,6 @@
-USE burgers_db;
+USE client_db;
 
-INSERT INTO burgers (client_name) VALUES ('chicken');
-INSERT INTO burgers (client_name) VALUES ('beed');
-INSERT INTO burgers (client_name, devoured) VALUES ('veggie', true);
-INSERT INTO burgers (client_name) VALUES ('cow');
+INSERT INTO clients (client_name) VALUES ('Shawn');
+INSERT INTO clients (client_name) VALUES ('tyler');
+INSERT INTO clients (client_name, devoured) VALUES ('Shawn', false);
+INSERT INTO clients (client_name, devoured) VALUES ('Shawn', true);

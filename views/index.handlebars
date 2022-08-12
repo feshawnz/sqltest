@@ -1,20 +1,20 @@
 <h1>Clients Table</h1>
 <div class="row">
-  <div class="panel col-lg-5 not-devoured">
-    <h6>Burgers That Are Not Devoured!</h6>
+  <div class="panel col-lg-5 not-isSection">
+    <h6>clients That Are Not isSection!</h6>
 
 <ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
+  {{#each clients}}
+    {{#unless this.isSection}}
       <li>
         {{this.client_name}}
 
-        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="1">
-          <button type="submit">Eat!</button>
+        <form action="clients/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="isSection" value="1">
+          <button type="submit">change value!</button>
         </form>
-        <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST">
-{{!--         <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST"> --}}
+        <form action="clients/delete/{{this.id}}?_method=DELETE" method="POST">
+{{!--         <form action="clients/delete/{{this.id}}?_method=DELETE" method="POST"> --}}
         <button type="submit">Delete</button>
         </form>
       </li>
@@ -22,20 +22,20 @@
   {{/each}}
 </ul>
 </div>
-  <div class="panel col-lg-5 devoured">
-<h6>Burgers That Are Devoured!</h6>
+  <div class="panel col-lg-5 isSection">
+<h6>clients That Are isSection!</h6>
 
 
 
 <ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
+  {{#each clients}}
+    {{#if this.isSection}}
       <li>
         {{this.client_name}}
 
 
-        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="0">
+        <form action="clients/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="isSection" value="0">
           <button type="submit">Switch</button>
         </form>
 
@@ -51,7 +51,7 @@
 
 
 <h2>Add a Client</h2>
-<form action="burgers/create/" method="POST">
+<form action="clients/crchange valuee/" method="POST">
 
   <div class="form-group">
     <label>Client Name:</label>
@@ -70,4 +70,4 @@
 
 
 
-{{!--         {{> burgers/delete-burgers}} --}}
+{{!--         {{> clients/delete-clients}} --}}

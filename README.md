@@ -1,22 +1,22 @@
 > ![gif](https://j.gifs.com/qjDJLp.gif)
 
-### burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!).
+### client logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!).
 
 ### Before You Begin
 
-* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+* Eat-Da-client! is a restaurant app that lets users input the names of clients they'd like to eat.
 
-* Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+* Whenever a user submits a client's name, your app will display the client on the left side of the page -- waiting to be devoured.
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+* Each client in the waiting area also has a `Devour it!` button. When the user clicks it, the client will move to the right side of the page.
 
-* Your app will store every burger in a database, whether devoured or not.
+* Your app will store every client in a database, whether devoured or not.
 
 ## Instructions
 
 #### App Setup
 
-1. Create a GitHub repo called `burger` and clone it to your computer.
+1. Create a GitHub repo called `client` and clone it to your computer.
 
 2. Make a package.json file by running `npm init` from the command line.
 
@@ -39,18 +39,18 @@
 
 #### DB Setup:
 
-1. Inside your `burger` directory, create a folder named `db`.
+1. Inside your `client` directory, create a folder named `db`.
 
 2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
-	* Create the `burgers_db`.
-	* Switch to or use the `burgers_db`.
-	* Create a `burgers` table with these fields:
+	* Create the `clients_db`.
+	* Switch to or use the `clients_db`.
+	* Create a `clients` table with these fields:
 		* **id**: an auto incrementing int that serves as the primary key.
-		* **burger_name**: a string.
+		* **client_name**: a string.
 		* **devoured**: a boolean.
 		* **date**: a TIMESTAMP.
 
-4. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+4. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `clients` table with at least three entries.
 
 7. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
 
@@ -68,7 +68,7 @@
 
 #### Config Setup:
 
-1. Inside your `burger` directory, create a folder named `config`.
+1. Inside your `client` directory, create a folder named `config`.
 
 2. Create a `connection.js` file inside `config` directory.
 
@@ -89,31 +89,31 @@
 
 #### Model setup:
 
-* Inside your `burger` directory, create a folder named `models`.
+* Inside your `client` directory, create a folder named `models`.
 
-	* In `models`, make a `burger.js` file.
+	* In `models`, make a `client.js` file.
 
-		* Inside `burger.js`, import `orm.js` into `burger.js`
+		* Inside `client.js`, import `orm.js` into `client.js`
 
-		* Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+		* Also inside `client.js`, create the code that will call the ORM functions using client specific input for the ORM.
 
-		* Export at the end of the `burger.js` file.
+		* Export at the end of the `client.js` file.
 
 #### Controller setup:
 
-1. Inside your `burger` directory, create a folder named `controllers`.
+1. Inside your `client` directory, create a folder named `controllers`.
 
-2. In `controllers`, create the `burgers_controller.js` file.
+2. In `controllers`, create the `clients_controller.js` file.
 
-3. Inside the `burgers_controller.js` file, import the following:
+3. Inside the `clients_controller.js` file, import the following:
 	* Express
-	* `burger.js`
+	* `client.js`
 
 4. Create the `router` for the app, and export the `router` at the end of your file.
 
 #### View setup:
 
-1. Inside your `burger` directory, create a folder named `views`.
+1. Inside your `client` directory, create a folder named `views`.
 
 	* Create the `index.handlebars` file inside `views` directory.
 
@@ -136,14 +136,14 @@ All the recommended files and directories from the steps above should look like 
 │   └── orm.js
 │ 
 ├── controllers
-│   └── burgers_controller.js
+│   └── clients_controller.js
 │
 ├── db
 │   ├── schema.sql
 │   └── seeds.sql
 │
 ├── models
-│   └── burger.js
+│   └── client.js
 │ 
 ├── node_modules
 │ 
@@ -152,9 +152,9 @@ All the recommended files and directories from the steps above should look like 
 ├── public
 │   ├── assets
 │   │   ├── css
-│   │   │   └── burger_style.css
+│   │   │   └── client_style.css
 │   │   └── img
-│   │       └── burger.png
+│   │       └── client.png
 │   └── test.html
 │
 ├── server.js

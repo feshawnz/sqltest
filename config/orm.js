@@ -1,19 +1,6 @@
-/*
-Here is the O.R.M. where you write functions 
-that takes inputs and conditions and turn 
-them into database commands like SQL.
-*/
+
 var connection = require('../config/connection.js');
 
-function printQuestionMarks(num) {
-	var arr = [];
-
-	for (var i = 0; i < num; i++) {
-		arr.push('?');
-	}
-
-	return arr.toString();
-}
 
 var orm = {
 	all: function (table, cb) {
@@ -43,11 +30,10 @@ var orm = {
 		// an example of objColVals would be {name: panther, sleepy: true}
 	update: function  (table, column,newValue,condition, cb) {
 
-		//UPDATE `burgers_db`.`burgers` SET `client_name`='lz' WHERE `id`='5';
+		//UPDATE `client`.`client_db` SET `client_name`='lz' WHERE `id`='5';
 
 		var queryString = 'UPDATE ' + table + ' SET ' + column + '=' + newValue + ' WHERE ' + condition + ';'
 
-		console.log(queryString);
 		connection.query(queryString, function (err, result) {
 			if (err) throw err;
 			cb(result);
@@ -68,11 +54,11 @@ var orm = {
 };
 
 
-//orm.all('burgers', function(data){console.log(data);})
-//orm.all('burgers', function(aaa){console.log(aaa);})
-//orm.update('burgers','client_name','"shawn go"','id=1', function(data){console.log(data)})
-//orm.update('burgers','devoured',5,'id=1', function(data){console.log(data)})
-//orm.delete('burgers','id=5',function(data){console.log(data)})
+//orm.all('client_db', function(data){console.log(data);})
+//orm.all('client_db', function(aaa){console.log(aaa);})
+//orm.update('client_db','client_name','"shawn"','id=1', function(data){console.log(data)})
+//orm.update('client_db','devoured',5,'id=1', function(data){console.log(data)})
+//orm.delete('client_db','id=5',function(data){console.log(data)})
 
 
 

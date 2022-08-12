@@ -1,12 +1,10 @@
-/*CREATE DATABASE burgers_db;*/
-USE burgers_db;
+CREATE DATABASE client_db;
+USE client_db;
 
 
-CREATE TABLE burgers
-(
+CREATE TABLE clients(
 	id int NOT NULL AUTO_INCREMENT,
     client_name  varchar(200) NOT NULL,
-    devoured BOOLEAN DEFAULT false,
-    todaydate  TIMESTAMP,
+    section BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
