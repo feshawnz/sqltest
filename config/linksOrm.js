@@ -16,7 +16,7 @@ function objToSql(ob) {
 	var arr = [];
 	for (var key in ob) {
 	  if (ob.hasOwnProperty(key)) {
-		arr.push(key + '=' + "'" + ob[key] +"'");
+		arr.push("'" + ob[key] +"'");
 	  }
 	}
 	return arr.toString();
@@ -29,7 +29,7 @@ function objtoId(ob) {
 		arr.push(ob[key]);
 	  }
 	}
-	return arr.toString();;
+	return arr.toString();
 }
 
 var linkOrm = {

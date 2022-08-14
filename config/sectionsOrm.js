@@ -14,7 +14,6 @@ function objTosqlKey(ob) {
 
 function objToSql(ob) {
 	var arr = [];
-	console.log(ob)
 	for (var key in ob) {
 	  if (ob.hasOwnProperty(key)) {
 		arr.push("'" + ob[key] +"'");
@@ -46,7 +45,6 @@ var sectionsOrm = {
 		// var columnString = column.toString();
 
 		var queryString = 'INSERT INTO ' + table + ' (' + column1 +  ',' +   column2 +  ') ' + 'VALUES('  + objToSql(values) +  ',' + objtoId(id) +  ');'
-		console.log(queryString)
 
 		connection.query(queryString, values, function (err, result) {
 			if (err) throw err;
@@ -63,7 +61,6 @@ var sectionsOrm = {
 		queryString = queryString + ' WHERE ';
 		queryString = queryString + condition;
 
-		console.log(queryString);
 		connection.query(queryString, function (err, result) {
 			if (err) throw err;
 			callback(result);

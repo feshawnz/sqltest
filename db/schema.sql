@@ -50,8 +50,5 @@ VALUES
 ('link1',1),
 ('link2',2);
     
-UPDATE clients
-SET clientId = 100
-WHERE clientId = 1;
 
 SELECT * FROM clients;
