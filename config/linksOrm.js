@@ -1,5 +1,15 @@
 
-var connection = require('../config/connection.js');
+var connection = require('./connection.js');
+
+function objTosqlKey(ob) {
+	var arr = [];
+	for (var key in ob) {
+	  if (ob.hasOwnProperty(key)) {
+		arr.push(key + '=' + "'" + ob[key] +"'");
+	  }
+	}
+	return arr.toString();
+}
 
 
 function objToSql(ob) {
@@ -12,7 +22,17 @@ function objToSql(ob) {
 	return arr.toString();
 }
 
-var orm = {
+function objtoId(ob) {
+	var arr = [];
+	for (var key in ob) {
+	  if (ob.hasOwnProperty(key)) {
+		arr.push(ob[key]);
+	  }
+	}
+	return arr.toString();;
+}
+
+var linkOrm = {
 	all: function (table, cb) {
 		var queryString = 'SELECT * FROM ' + table + ';';
 		connection.query(queryString, function (err, result) {
@@ -21,10 +41,9 @@ var orm = {
 		});
 	},
 
-	create: function (table,column,values,cb) {
-		var columnString = column.toString();
-		var queryString = 'INSERT INTO ' + table + ' (' + columnString + ') ' + 'VALUES(' + "'" + values + "'" + ');'
-
+	create: function (table,column1,column2,values,id,cb) {
+		// var columnString = column.toString();
+		var queryString = 'INSERT INTO ' + table + ' (' + column1 +  ',' +   column2 +  ') ' + 'VALUES('  + objToSql(values) +  ',' + objtoId(id) +  ');'
 		connection.query(queryString, values, function (err, result) {
 			if (err) throw err;
 			cb(result);
@@ -32,11 +51,9 @@ var orm = {
 	},
 
 	update:function(table, objColVals, condition, callback) {
-
 		var queryString = 'UPDATE ' + table;
-
 		queryString = queryString + ' SET ';
-		queryString = queryString + objToSql(objColVals);
+		queryString = queryString + objTosqlKey(objColVals);
 		queryString = queryString + ' WHERE ';
 		queryString = queryString + condition;
 
@@ -52,7 +69,6 @@ var orm = {
 		var queryString = 'DELETE FROM ' + table;
 		queryString = queryString + ' WHERE ';
 		queryString = queryString + condition;
-
 		connection.query(queryString, function (err, result) {
 			if (err) throw err;
 			cb(result);
@@ -61,4 +77,5 @@ var orm = {
 };
 
 
-module.exports = orm;
+
+module.exports = linkOrm;

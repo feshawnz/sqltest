@@ -26,21 +26,15 @@ var clientModel = {
 	},
 	delete: function (condition, cb) {
 		orm.delete('clients',condition, function (res) {
-			console.log("workings11111??")
 			cb(res);
 			console.log("orm model DELELTE is working")
 		});
 	}
 };
 
-//clientModel.all(function(data){console.log(data)});
-//clientModel.create('client_name',"yay",function(data){console.log(data)})
-// clientModel.update('devoured',0,'id=1', function(data){console.log(data)})
-//clientModel.delete('id=5',function(data){console.log(data)})
-
-//TIPS:
-//when you call cb don't forget cb is running as a function.
-
-
 
 module.exports = clientModel;
+
+
+
+
